@@ -11,3 +11,9 @@ Create a serviceAccount.yaml file and copy the following admin service account m
 
 **Step 3:** 
 Create volume.yaml and copy the following persistent volume manifest. **NB** CHANGE THE _ minikube _ to your  own  cluster  node  name
+**kubectl create -f volume.yml**
+
+**Step 4:**  
+Create a Deployment file named deployment.yaml and copy the following deployment manifest.Create the deployment using kubectl.
+
+**kubectl apply -f deployment.yml**
