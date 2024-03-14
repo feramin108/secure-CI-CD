@@ -15,19 +15,27 @@ spec:
   storageClassName: local-storage
   claimRef:
     name: jenkins-pv-claim
-    namespace: devops
+    namespace: devops-tools
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   local:
     path: /mnt
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - minikube
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: jenkins-pv-claim
-  namespace: devops
+  namespace: devops-tools
 spec:
   storageClassName: local-storage
   accessModes:
