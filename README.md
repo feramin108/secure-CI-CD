@@ -36,5 +36,22 @@ note that we're using the NodePort type, which will make Jenkins accessible via 
 If you have an ingress configuration, you can define an ingress rule to access Jenkins. Additionally, 
 if you're running the cluster on AWS, Google Cloud, or Azure, you can expose the Jenkins service as a LoadBalancer.
 
+Create the Jenkins service using kubectl.
 
+**kubectl apply -f service.yml**
+Now if you browse to any one of the Node IPs on port 32000, you will be able to access the Jenkins dashboard.
 
+http://<node-ip>:32000
+Jenkins will ask for the initial **Admin password** when you access the dashboard for the first time.
+
+You can get that from the pod logs either from the kubernetes dashboard or  CLI. You can get the pod details using the following CLI command.
+
+**kubectl get pods --namespace=namespace**
+And with the pod name, you can get the logs as shown below. replace the pod name with your pod name.
+
+**kubectl logs pods --namespace=namespace**
+
+After entering the password, you can proceed with installing the recommended plugins and creating an admin user. These steps are straightforward and can be easily completed from the Jenkins dashboard.
+
+# In conclusion
+once you've completed these tasks, Jenkins will be ready for use, and you'll have full control over its configuration and usage.
