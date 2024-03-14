@@ -24,4 +24,8 @@ Create a Deployment file named deployment.yaml and copy the following deployment
 . Utilized a local persistent volume, which is based on the local storage class, to store Jenkins data at the path /var/jenkins_home.
 
 **Step 5:** 
-Check the deployment status. kubectl get deployments -n *namespace*
+Check the deployment status. kubectl get deployments -n *namespace* **
+you can get the deployment details using the following command
+**kubectl  describe deployments --namespace=namespace**
+
+# Accessing Jenkins via Kubernetes Service
