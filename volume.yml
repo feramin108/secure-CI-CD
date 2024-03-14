@@ -22,14 +22,6 @@ spec:
     - ReadWriteOnce
   local:
     path: /mnt
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - minikube  # Update the node name to "minikube"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
