@@ -21,7 +21,15 @@ spec:
   accessModes:
     - ReadWriteOnce
   local:
-    path: /mnt  # No changes made here
+    path: /mnt
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - minikube  # Update the node name to "minikube"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -34,4 +42,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi  # No changes made here
+      storage: 3Gi
